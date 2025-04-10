@@ -158,7 +158,7 @@ function App() {
                 className="inline-block p-3 bg-blue-100 dark:bg-blue-900 rounded-full mb-6"
               >
                 <img
-                src="/assets/Profile-Imge.jpeg" // Replace with your image path
+                src="/public/assets/Profile-Imge.jpeg" // Replace with your image path
                 alt="Shaqib Iqbal"
                 className="w-40 h-40 rounded-full object-cover border-4 border-blue-800 dark:border-blue-400 shadow-xl"
                 />
