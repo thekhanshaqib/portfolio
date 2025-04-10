@@ -241,7 +241,7 @@ function App() {
         <li className="mb-8 ml-4">
           <div className="absolute w-3 h-3 bg-indigo-600 rounded-full -left-1.5 border border-white dark:border-gray-900"></div>
           <time className="mb-1 text-sm font-medium text-indigo-500">April 2022</time>
-          <p className="text-base text-gray-600 dark:text-gray-300">Joined Mahavir AV Solutions as Business Analyst</p>
+          <p className="text-base text-gray-600 dark:text-gray-300">Joined MAVS as Business Analyst</p>
         </li>
         <li className="ml-4">
           <div className="absolute w-3 h-3 bg-indigo-600 rounded-full -left-1.5 border border-white dark:border-gray-900"></div>
