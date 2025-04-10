@@ -24,6 +24,78 @@ import {
   Users
 } from 'lucide-react';
 
+const bubbleQuotes = [
+  {
+    text: "Think big, start small, learn fast.",
+    url: "https://medium.com/product-management",
+    position: "left-[10%] top-[20%]",
+    gradient: "from-pink-400 to-orange-400",
+    delay: 0.2
+  },
+  {
+    text: "Data drives decisions, but users drive value.",
+    url: "https://www.linkedin.com/product-strategy",
+    position: "left-[15%] top-[50%]",
+    gradient: "from-blue-400 to-purple-400",
+    delay: 0.6
+  },
+  {
+    text: "Great products begin with real problems.",
+    url: "https://github.com/portfolio",
+    position: "right-[10%] top-[5%]",
+    gradient: "from-green-400 to-teal-400",
+    delay: 0.8
+  },
+  {
+    text: "Innovation is seeing what everybody sees and thinking differently.",
+    url: "https://dribbble.com/designs",
+    position: "right-[15%] top-[35%]",
+    gradient: "from-yellow-400 to-orange-400",
+    delay: 0.10
+  },
+  // {
+  //   text: "Build what matters, measure what counts.",
+  //   url: "https://behance.net/projects",
+  //   position: "right-[8%] top-[65%]",
+  //   gradient: "from-yellow-400 to-orange-400",
+  //   delay: 1.0
+  // }
+];
+function FloatingBubble({ quote, position, gradient, delay }: {
+  quote: typeof bubbleQuotes[0];
+  position: string;
+  gradient: string;
+  delay: number;
+}) {
+  return (
+    <motion.a
+      href={quote.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      initial={{ scale: 0, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{
+        type: "spring",
+        stiffness: 260,
+        damping: 20,
+        delay: delay
+      }}
+      whileHover={{ 
+        scale: 1.1,
+        filter: "brightness(1.1)",
+        boxShadow: "0 0 20px rgba(255,255,255,0.3)"
+      }}
+      className={`absolute ${position} w-48 h-48 rounded-full bg-gradient-to-br ${gradient} 
+        flex items-center justify-center p-6 text-white text-center text-sm 
+        font-medium cursor-pointer shadow-lg backdrop-blur-sm 
+        transition-shadow hover:shadow-2xl`}
+    >
+      {quote.text}
+    </motion.a>
+  );
+}
+
+
 function App() {
   const [activeSection, setActiveSection] = useState('intro');
   const [isFloatingBubbleVisible, setFloatingBubbleVisible] = useState(true);
@@ -59,54 +131,69 @@ function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 p-4 relative">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 p-4 relative overflow-hidden">
       <AnimatePresence mode="wait">
         {activeSection === 'intro' && (
-          <motion.div
-            key="intro"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="max-w-4xl mx-auto text-center py-20"
-          >
+          <>
+            {bubbleQuotes.map((quote, index) => (
+              <FloatingBubble
+                key={index}
+                quote={quote}
+                position={quote.position}
+                gradient={quote.gradient}
+                delay={quote.delay}
+              />
+            ))}
             <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.2 }}
-              className="inline-block p-3 bg-indigo-100 dark:bg-indigo-900 rounded-full mb-6"
+              key="intro"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="max-w-4xl mx-auto text-center py-20 relative z-10"
             >
-              <Database className="w-8 h-8 text-indigo-600 dark:text-indigo-400" />
-            </motion.div>
-            <motion.h1
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
-              className="text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600"
-            >
-              Shaqib Iqbal
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              className="text-xl text-gray-600 dark:text-gray-300 mb-8"
-            >
-              Data to Product — A Journey of Impact 🚀
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
-            >
-              <Button
-                size="lg"
-                onClick={nextSection}
-                className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-6 text-lg rounded-full transition-all hover:scale-105"
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 0.2 }}
+                className="inline-block p-3 bg-blue-100 dark:bg-blue-900 rounded-full mb-6"
               >
-                Start Exploring My Story <Sparkles className="ml-2" />
-              </Button>
+                <img
+                src="/assets/Profile-Imge.jpeg" // Replace with your image path
+                alt="Shaqib Iqbal"
+                className="w-40 h-40 rounded-full object-cover border-4 border-blue-800 dark:border-blue-400 shadow-xl"
+                />
+              </motion.div>
+              <motion.h1
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4 }}
+                className="text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600"
+              >
+                Shaqib Iqbal
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+                className="text-xl text-gray-600 dark:text-gray-300 mb-8"
+              >
+                Data to Product — A Journey of Impact 🚀
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.8 }}
+              >
+                <Button
+                  size="lg"
+                  onClick={nextSection}
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg rounded-full transition-all hover:scale-105"
+                >
+                  Start Exploring My Journey <Sparkles className="ml-2" />
+                </Button>
+              </motion.div>
             </motion.div>
-          </motion.div>
+          </>
         )}
 
         {activeSection === 'about' && (
@@ -449,7 +536,7 @@ function App() {
           {step === 1 && (
             <>
               <p className="text-sm text-gray-500">June 2021 – March 2022</p>
-              <h3 className="text-xl font-bold">Associate Data Analyst</h3>
+              <h3 className="text-xl font-bold">Data Analyst Intern</h3>
               <p className="text-gray-600 dark:text-gray-400">AH Enterprises</p>
               <ul className="mt-2 space-y-2 text-gray-600 dark:text-gray-300">
                 <li>• Handled raw data and helped transform it into meaningful reports for business decisions.</li>
