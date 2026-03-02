@@ -3,11 +3,10 @@
 import React, { useCallback, useState } from 'react';
 import * as THREE from 'three';
 import { ThreeCanvas } from '@/components/canvas/ThreeCanvas';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { Activity, Layers, Users, Zap, Globe, Package } from 'lucide-react';
+import { Activity, Layers, Users, Box, BarChart3, ClipboardList } from 'lucide-react';
 
 const PROJECTS = [
   {
@@ -19,6 +18,16 @@ const PROJECTS = [
     longDesc: 'Developed a comprehensive AI chatbot and automation platform to enable scalable digital operations. Integrated webhook-driven workflows using n8n and Make, reducing manual reporting overhead significantly.',
     tech: ['OpenAI API', 'Gemini API', 'n8n', 'Make', 'SQL', 'Power BI'],
     metrics: ['20% increase in operational efficiency', '60% faster decision-making via dashboards', 'Automated reporting for cross-functional teams']
+  },
+  {
+    title: 'B2B Inventory & Procurement',
+    category: 'Enterprise B2B',
+    company: 'MAVS',
+    description: 'Owned roadmap for 2 enterprise platforms, contributing to 11.67M AED billings.',
+    impact: '11.67M AED Billings',
+    longDesc: 'Spearheaded the product strategy for two mission-critical B2B inventory and procurement platforms. Focused on real-time inventory analytics and workflow automation for warehouse operations.',
+    tech: ['Power BI', 'Real-time Analytics', 'Agile', 'PRD/BRD', 'Inventory Logic'],
+    metrics: ['11.67M AED in quoted billings (2025)', '40% improvement in stock tracking speed', 'Saved 8–10 hours weekly via dashboards', '13% YoY sales growth contribution']
   },
   {
     title: 'B2C E-commerce Scaling',
@@ -46,7 +55,7 @@ export const CaseStudies = () => {
   const [activeProject, setActiveProject] = useState(0);
 
   const initCubeScene = useCallback((scene: THREE.Scene, camera: THREE.PerspectiveCamera, renderer: THREE.WebGLRenderer) => {
-    camera.position.z = 3;
+    camera.position.z = 3.5;
 
     const geometry = new THREE.BoxGeometry(1, 1, 1);
     const material = new THREE.MeshStandardMaterial({ 
@@ -59,7 +68,8 @@ export const CaseStudies = () => {
     const cubes: THREE.Mesh[] = [];
     PROJECTS.forEach((_, i) => {
       const cube = new THREE.Mesh(geometry, material.clone());
-      cube.position.x = (i - 1) * 2;
+      // Adjust positioning for 4 cubes
+      cube.position.x = (i - 1.5) * 1.8;
       cubes.push(cube);
       scene.add(cube);
     });
@@ -77,7 +87,7 @@ export const CaseStudies = () => {
       cubes.forEach((cube, i) => {
         cube.rotation.x += 0.01;
         cube.rotation.y += 0.01;
-        const scale = activeProject === i ? 1.2 : 0.8;
+        const scale = activeProject === i ? 1.2 : 0.7;
         cube.scale.lerp(new THREE.Vector3(scale, scale, scale), 0.1);
         const targetColor = activeProject === i ? new THREE.Color(0xc48ffc) : new THREE.Color(0x5989f0);
         (cube.material as THREE.MeshStandardMaterial).color.lerp(targetColor, 0.05);
@@ -113,9 +123,9 @@ export const CaseStudies = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="h-[400px] glass rounded-3xl relative">
             <ThreeCanvas init={initCubeScene} className="absolute inset-0" />
-            <div className="absolute bottom-6 left-6 right-6 flex justify-center gap-4">
+            <div className="absolute bottom-6 left-6 right-6 flex flex-wrap justify-center gap-2">
                {PROJECTS.map((p, i) => (
-                 <Badge key={i} variant={activeProject === i ? 'default' : 'outline'} className="cursor-pointer" onClick={() => setActiveProject(i)}>
+                 <Badge key={i} variant={activeProject === i ? 'default' : 'outline'} className="cursor-pointer text-[10px]" onClick={() => setActiveProject(i)}>
                     {p.company}
                  </Badge>
                ))}
@@ -148,7 +158,7 @@ export const CaseStudies = () => {
                 <DialogTrigger asChild>
                   <Button className="w-full h-12 rounded-xl bg-primary hover:bg-primary/90">Deep Dive Details</Button>
                 </DialogTrigger>
-                <DialogContent className="glass sm:max-w-[700px] border-white/10">
+                <DialogContent className="glass sm:max-w-[700px] border-white/10 max-h-[90vh] overflow-y-auto">
                   <DialogHeader>
                     <div className="flex items-center gap-2 mb-2">
                       <Badge variant="outline">{PROJECTS[activeProject].category}</Badge>
@@ -185,7 +195,7 @@ export const CaseStudies = () => {
                         <Users className="w-5 h-5 text-primary" /> Strategic Leadership
                       </h4>
                       <p className="text-muted-foreground">
-                        Led cross-functional teams and aligned product roadmaps with enterprise-wide digital transformation goals.
+                        Led cross-functional teams and aligned product roadmaps with enterprise-wide digital transformation goals. Provided structured PRDs/BRDs and managed agile sprints.
                       </p>
                     </div>
                   </div>
