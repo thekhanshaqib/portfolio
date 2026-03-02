@@ -19,7 +19,7 @@ export default function Home() {
 
       <div className="w-full h-24 bg-gradient-to-b from-background to-[#16191E]" />
       
-      <div id="timeline">
+      <div id="career-timeline">
         <Timeline />
       </div>
 

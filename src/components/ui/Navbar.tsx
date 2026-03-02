@@ -14,7 +14,7 @@ export const Navbar = () => {
         </div>
         
         <div className="hidden lg:flex items-center gap-6">
-          {['Hero', 'Timeline', 'Skills', 'AI Lab', 'Automations', 'Impact'].map((item) => (
+          {['Career Timeline', 'Skills', 'AI Lab', 'Automations', 'Impact'].map((item) => (
             <a key={item} href={`#${item.toLowerCase().replace(' ', '-')}`} className="text-[11px] uppercase tracking-widest font-bold text-muted-foreground hover:text-primary transition-colors">
               {item}
             </a>
