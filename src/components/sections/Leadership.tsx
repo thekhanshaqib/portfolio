@@ -8,36 +8,36 @@ export const Leadership = () => {
   return (
     <section className="py-24 bg-background relative overflow-hidden">
       <div className="container px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <div className="inline-flex items-center gap-2 mb-6 text-primary">
-              <Network className="w-6 h-6" />
-              <span className="font-bold tracking-widest text-xs uppercase">Core Competencies</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              Leading <span className="text-primary italic">0-1 Products</span> <br />With <span className="text-accent italic">Technical Depth.</span>
-            </h2>
-            <p className="text-muted-foreground text-lg mb-10 leading-relaxed">
-              I operate at the intersection of strategy, execution, and scale. My strength lies in transforming ambiguity into structured product roadmaps and combining technical acumen with business focus.
-            </p>
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 mb-6 text-primary">
+            <Network className="w-6 h-6" />
+            <span className="font-bold tracking-widest text-xs uppercase">Core Competencies</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            Leading <span className="text-primary italic">0-1 Products</span> <br />With <span className="text-accent italic">Technical Depth.</span>
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
+            I operate at the intersection of strategy, execution, and scale. My strength lies in transforming ambiguity into structured product roadmaps and combining technical acumen with business focus.
+          </p>
+        </div>
 
-            <div className="space-y-6">
-              {[
-                { title: 'Cross-Functional Leadership', desc: 'Led 6+ cross-functional teams to drive adoption.', icon: <Users className="w-5 h-5" /> },
-                { title: 'Agile & Lifecycle Mastery', desc: 'Managed full project lifecycles and backlog grooming.', icon: <BarChart3 className="w-5 h-5" /> },
-                { title: 'Technical Strategy', desc: 'Deep expertise in LLM workflows, SQL, and Webhooks.', icon: <CheckCircle2 className="w-5 h-5" /> },
-              ].map((item, i) => (
-                <div key={i} className="flex gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                    <div className="text-primary">{item.icon}</div>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-white">{item.title}</h4>
-                    <p className="text-sm text-muted-foreground">{item.desc}</p>
-                  </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="space-y-6">
+            {[
+              { title: 'Cross-Functional Leadership', desc: 'Led 6+ cross-functional teams to drive adoption.', icon: <Users className="w-5 h-5" /> },
+              { title: 'Agile & Lifecycle Mastery', desc: 'Managed full project lifecycles and backlog grooming.', icon: <BarChart3 className="w-5 h-5" /> },
+              { title: 'Technical Strategy', desc: 'Deep expertise in LLM workflows, SQL, and Webhooks.', icon: <CheckCircle2 className="w-5 h-5" /> },
+            ].map((item, i) => (
+              <div key={i} className="flex gap-4">
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                  <div className="text-primary">{item.icon}</div>
                 </div>
-              ))}
-            </div>
+                <div>
+                  <h4 className="font-bold text-white">{item.title}</h4>
+                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
 
           <div className="relative">

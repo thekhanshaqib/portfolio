@@ -102,14 +102,12 @@ export const CaseStudies = () => {
   return (
     <section className="py-24 bg-background relative overflow-hidden">
       <div className="container px-6">
-        <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-4">
-          <div className="max-w-xl">
-            <h2 className="text-4xl font-bold mb-4 tracking-tight">Proven <span className="text-primary">Experience.</span> Real <span className="text-primary">Results.</span></h2>
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              Selection of high-impact products where I led technical strategy and execution to drive measurable growth across diverse industries.
-            </p>
-          </div>
-          <div className="flex gap-2 mb-2">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">Proven <span className="text-primary">Experience.</span> Real <span className="text-primary">Results.</span></h2>
+          <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl mx-auto mb-8">
+            Selection of high-impact products where I led technical strategy and execution to drive measurable growth across diverse industries.
+          </p>
+          <div className="flex justify-center gap-2">
             {PROJECTS.map((_, i) => (
               <button 
                 key={i} 

@@ -31,10 +31,10 @@ export const Automations = () => {
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
       
       <div className="container px-6 relative z-10">
-        <div className="mb-16">
+        <div className="text-center mb-16">
           <Badge className="mb-4 bg-primary/20 text-primary border-primary/20 px-4 py-1">THE FORGE</Badge>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Strategic <span className="text-primary italic">Automations.</span></h2>
-          <p className="text-muted-foreground text-lg max-w-2xl">
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             I orchestrate complex, webhook-driven workflows using n8n to eliminate manual overhead and generate high-value market insights.
           </p>
         </div>
