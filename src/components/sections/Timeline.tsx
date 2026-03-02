@@ -101,12 +101,12 @@ export const Timeline = () => {
   const bikeDistance = (JOURNEY.length - 1) * 398;
 
   return (
-    <section id="timeline" ref={containerRef} className="relative h-[500vh] bg-background">
+    <section id="career-journey" ref={containerRef} className="relative h-[500vh] bg-background">
       <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
         <div className="container px-6 mb-12 relative z-20">
           <div className="text-center">
             <Badge className="mb-4 bg-primary/20 text-primary border-primary/20 px-4 py-1 uppercase tracking-widest text-[10px]">THE JOURNEY</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold">Career <span className="text-primary italic">Timeline.</span></h2>
+            <h2 className="text-4xl md:text-5xl font-bold">Career <span className="text-primary italic">Journey.</span></h2>
             <p className="text-muted-foreground mt-4 max-w-xl mx-auto text-sm">Scroll to watch the journey unfold.</p>
           </div>
         </div>
