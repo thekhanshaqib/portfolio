@@ -10,7 +10,7 @@ const LinkedInIcon = ({ className }: { className?: string }) => (
     className={className}
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5z" fill="currentColor"/>
+    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5z" fill="#0A66C2"/>
     <path d="M8 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill="white"/>
   </svg>
 );
@@ -35,7 +35,7 @@ export const Footer = () => {
                 rel="noopener noreferrer" 
                 className="w-10 h-10 rounded-full glass border-white/5 flex items-center justify-center hover:bg-white/10 transition-all group"
               >
-                <LinkedInIcon className="w-4 h-4 text-[#0A66C2] group-hover:scale-110 transition-transform" />
+                <LinkedInIcon className="w-6 h-6 group-hover:scale-110 transition-transform" />
                 <span className="sr-only">LinkedIn</span>
               </a>
               <a 
@@ -61,11 +61,11 @@ export const Footer = () => {
           <div>
             <h4 className="font-bold mb-6 text-white uppercase tracking-widest text-xs">Navigation</h4>
             <ul className="space-y-3 text-muted-foreground text-sm">
-              <li><a href="#case-studies" className="hover:text-primary transition-colors">Case Studies</a></li>
               <li><a href="#career-journey" className="hover:text-primary transition-colors">Career Journey</a></li>
               <li><a href="#skills" className="hover:text-primary transition-colors">Skills</a></li>
               <li><a href="#ai-lab" className="hover:text-primary transition-colors">AI Lab</a></li>
               <li><a href="#automations" className="hover:text-primary transition-colors">Automations</a></li>
+              <li><a href="#impact" className="hover:text-primary transition-colors">Impact</a></li>
             </ul>
           </div>
 
@@ -93,7 +93,7 @@ export const Footer = () => {
         </div>
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground">
-          <p>© 2024 Shaqib Iqbal. Technical Product Manager Portfolio.</p>
+          <p>© 2026 Shaqib Iqbal. Technical Product Manager Portfolio.</p>
           <div className="flex gap-6">
             <span className="text-accent font-semibold flex items-center gap-1">
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
