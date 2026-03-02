@@ -62,54 +62,54 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen w-full flex flex-col items-center justify-center pt-32 pb-20 overflow-hidden">
       <ThreeCanvas init={initHeroScene} className="absolute inset-0 z-0 pointer-events-none" />
       
       <div className="container relative z-10 px-6 text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full glass text-xs font-medium text-primary-foreground/80">
-          <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+        <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full glass text-sm font-medium text-white border border-white/10 shadow-lg">
+          <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse shadow-[0_0_10px_rgba(var(--primary),0.5)]" />
           Shaqib Iqbal | Technical Product Manager
         </div>
         
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50">
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50">
           Turning <span className="text-primary italic">Ambiguity</span> Into <br />Structured <span className="text-accent italic">Impact.</span>
         </h1>
         
-        <p className="max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed">
+        <p className="max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground mb-12 leading-relaxed">
           4+ years building 0-1 products across B2C, B2B, and SaaS ecosystems. 
           Bridging technical depth with business acumen to ship scalable solutions.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
           <a href="#case-studies">
-            <Button size="lg" className="rounded-full px-8 h-12 text-base group bg-primary hover:bg-primary/90">
-              View Experience <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <Button size="lg" className="rounded-full px-10 h-14 text-lg group bg-primary hover:bg-primary/90 transition-all shadow-xl hover:shadow-primary/20">
+              View Experience <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </a>
           <a href="#ai-lab">
-            <Button size="lg" variant="outline" className="rounded-full px-8 h-12 text-base glass hover:bg-white/5">
+            <Button size="lg" variant="outline" className="rounded-full px-10 h-14 text-lg glass hover:bg-white/10 transition-all">
               Explore AI Lab
             </Button>
           </a>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24 max-w-4xl mx-auto">
           {[
-            { icon: <BarChart3 className="w-5 h-5 text-primary" />, label: 'Quoted Billing', value: '11.67M' },
-            { icon: <TrendingUp className="w-5 h-5 text-accent" />, label: 'Revenue Growth', value: '1M AED+' },
-            { icon: <Cpu className="w-5 h-5 text-primary" />, label: 'Delivered', value: '13+' },
-            { icon: <Zap className="w-5 h-5 text-accent" />, label: 'Decision Speed', value: '+60%' },
+            { icon: <BarChart3 className="w-6 h-6 text-primary" />, label: 'Quoted Billing', value: '11.67M' },
+            { icon: <TrendingUp className="w-6 h-6 text-accent" />, label: 'Revenue Growth', value: '1M AED+' },
+            { icon: <Cpu className="w-6 h-6 text-primary" />, label: 'Delivered', value: '13+' },
+            { icon: <Zap className="w-6 h-6 text-accent" />, label: 'Decision Speed', value: '+60%' },
           ].map((item, i) => (
-            <div key={i} className="flex flex-col items-center">
-              <div className="mb-2">{item.icon}</div>
-              <span className="text-2xl font-bold text-white">{item.value}</span>
-              <span className="text-xs uppercase tracking-widest text-muted-foreground text-center">{item.label}</span>
+            <div key={i} className="flex flex-col items-center group cursor-default">
+              <div className="mb-3 transform group-hover:scale-110 transition-transform">{item.icon}</div>
+              <span className="text-3xl font-bold text-white mb-1">{item.value}</span>
+              <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground text-center font-bold">{item.label}</span>
             </div>
           ))}
         </div>
       </div>
 
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
         <div className="w-6 h-10 rounded-full border-2 border-white/20 flex justify-center p-1">
           <div className="w-1 h-2 bg-white/50 rounded-full" />
         </div>
