@@ -1,8 +1,15 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu } from 'lucide-react';
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 const LinkedInIcon = ({ className }: { className?: string }) => (
   <svg 
@@ -16,6 +23,16 @@ const LinkedInIcon = ({ className }: { className?: string }) => (
 );
 
 export const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const menuItems = [
+    { name: 'Career Journey', href: '#career-journey' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'AI Lab', href: '#ai-lab' },
+    { name: 'Automations', href: '#automations' },
+    { name: 'Impact', href: '#impact' },
+  ];
+
   return (
     <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-6xl">
       <div className="glass h-16 px-6 rounded-full flex items-center justify-between border-white/10 shadow-2xl">
@@ -25,13 +42,13 @@ export const Navbar = () => {
         </div>
         
         <div className="hidden lg:flex items-center gap-6">
-          {['Career Journey', 'Skills', 'AI Lab', 'Automations', 'Impact'].map((item) => (
+          {menuItems.map((item) => (
             <a 
-              key={item} 
-              href={`#${item.toLowerCase().replace(' ', '-')}`} 
+              key={item.name} 
+              href={item.href} 
               className="text-[11px] uppercase tracking-widest font-bold text-muted-foreground hover:text-primary transition-colors"
             >
-              {item}
+              {item.name}
             </a>
           ))}
         </div>
@@ -51,9 +68,44 @@ export const Navbar = () => {
             Resume
           </Button>
 
-          <Button variant="ghost" size="icon" className="lg:hidden rounded-full">
-            <Menu className="w-5 h-5" />
-          </Button>
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="lg:hidden rounded-full hover:bg-white/5">
+                <Menu className="w-5 h-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="glass border-white/10 text-white p-0">
+              <SheetHeader className="p-6 border-b border-white/5">
+                <SheetTitle className="text-white text-left font-bold tracking-tight">Navigation</SheetTitle>
+              </SheetHeader>
+              <div className="flex flex-col p-6 gap-6">
+                {menuItems.map((item) => (
+                  <a 
+                    key={item.name} 
+                    href={item.href} 
+                    onClick={() => setIsOpen(false)}
+                    className="text-sm font-bold tracking-widest text-muted-foreground hover:text-primary transition-colors uppercase"
+                  >
+                    {item.name}
+                  </a>
+                ))}
+                
+                <div className="pt-6 border-t border-white/10">
+                  <a 
+                    href="https://www.linkedin.com/in/shaqib-iqbal-a15675170/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-muted-foreground hover:text-[#0A66C2] transition-colors"
+                  >
+                    <div className="w-10 h-10 rounded-full glass flex items-center justify-center">
+                      <LinkedInIcon className="w-5 h-5 text-[#0A66C2]" />
+                    </div>
+                    <span className="font-bold uppercase tracking-widest text-[10px]">Connect on LinkedIn</span>
+                  </a>
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </nav>
