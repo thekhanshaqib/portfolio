@@ -46,6 +46,10 @@ Work Experience Highlights:
 - MAVS (2021-2024): Owned roadmap for 2 enterprise B2B inventory & procurement platforms. Contributed to 11.67M AED in quoted billings (2025). Improved stock tracking speed by 40% via real-time analytics. Saved 8-10 hours weekly via Power BI dashboards, contributing to 13% YoY sales growth. Led agile sprints and PRD/BRD delivery.
 - Centeuno Technologies (2023-2025): Co-founder. Led delivery of 13+ cross-domain products. Scaled B2C platform to 1M AED revenue in year one with 40% retention.
 
+Special Automation Projects (n8n):
+- Weekly Market & AI Intelligence Report: Automated synthesis of global trends and AI breakthroughs into weekly summaries.
+- Competitor Analysis Weekly Report: Automated tracking of market competitor moves for strategic advantage.
+
 Education: Bachelor of Computer Applications (CS/ENGINEERING), Savitribai Phule Pune University (CGPA 9.3/10).
 Location: Pune, India (Open to Relocate).
 `;

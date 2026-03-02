@@ -13,8 +13,8 @@ export const Navbar = () => {
           <span className="font-bold text-lg tracking-tight hidden sm:inline-block">Shaqib Iqbal</span>
         </div>
         
-        <div className="hidden md:flex items-center gap-8">
-          {['Hero', 'Case Studies', 'AI Lab', 'Impact'].map((item) => (
+        <div className="hidden lg:flex items-center gap-8">
+          {['Hero', 'Case Studies', 'AI Lab', 'Automations', 'Impact'].map((item) => (
             <a key={item} href={`#${item.toLowerCase().replace(' ', '-')}`} className="text-sm font-medium text-muted-foreground hover:text-white transition-colors">
               {item}
             </a>
@@ -26,7 +26,7 @@ export const Navbar = () => {
           <a href="mailto:shaqibiqbal.1212@gmail.com">
             <Button className="rounded-full bg-white text-black hover:bg-white/90 font-bold px-6">Hire Me</Button>
           </a>
-          <Button variant="ghost" size="icon" className="md:hidden rounded-full">
+          <Button variant="ghost" size="icon" className="lg:hidden rounded-full">
             <Menu className="w-5 h-5" />
           </Button>
         </div>
