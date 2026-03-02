@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect, useState } from 'react';
 import { Badge } from '@/components/ui/badge';
-import { Briefcase, Calendar, MapPin } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, Bike } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const JOURNEY = [
@@ -52,14 +52,12 @@ export const Timeline = () => {
       const sectionHeight = containerRef.current.offsetHeight;
       const viewportHeight = window.innerHeight;
       
-      // Calculate how much of the section has been scrolled past the top
       const scrolled = -rect.top;
       const totalScrollableHeight = sectionHeight - viewportHeight;
       
       const progress = Math.min(Math.max(scrolled / totalScrollableHeight, 0), 1);
       setScrollProgress(progress);
 
-      // Determine active index based on progress
       const index = Math.min(
         Math.floor(progress * JOURNEY.length),
         JOURNEY.length - 1
@@ -68,20 +66,20 @@ export const Timeline = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Responsive translation calculation
   const getTranslateX = () => {
     if (typeof window === 'undefined') return 0;
-    const cardWidth = 400; // w-[350px] + gap-12
+    const cardWidth = 398; // 350px width + 48px gap
     const totalContentWidth = JOURNEY.length * cardWidth;
     const visibleWidth = window.innerWidth * 0.8;
     return scrollProgress * (totalContentWidth - visibleWidth);
   };
 
   const translateX = getTranslateX();
+  const bikeDistance = (JOURNEY.length - 1) * 398;
 
   return (
     <section id="timeline" ref={containerRef} className="relative h-[400vh] bg-background">
@@ -90,35 +88,58 @@ export const Timeline = () => {
           <div className="text-center">
             <Badge className="mb-4 bg-primary/20 text-primary border-primary/20 px-4 py-1 uppercase tracking-widest text-[10px]">THE JOURNEY</Badge>
             <h2 className="text-4xl md:text-5xl font-bold">Career <span className="text-primary italic">Timeline.</span></h2>
-            <p className="text-muted-foreground mt-4 max-w-xl mx-auto text-sm">Scroll to navigate through professional milestones.</p>
+            <p className="text-muted-foreground mt-4 max-w-xl mx-auto text-sm">Scroll to watch the journey unfold.</p>
           </div>
         </div>
 
         <div className="relative w-full">
           <div 
-            className="flex gap-12 px-[15vw] transition-transform duration-300 ease-out py-12"
+            className="flex gap-12 px-[15vw] transition-transform duration-300 ease-out py-24 relative"
             style={{ transform: `translateX(-${translateX}px)` }}
           >
             {/* Timeline Background Line */}
-            <div className="absolute top-1/2 left-0 w-[500%] h-px bg-white/5 -z-10" />
+            <div className="absolute top-24 left-0 w-[500%] h-1 bg-white/5 -z-10 -translate-y-1/2 overflow-hidden">
+              <div 
+                className="h-full bg-primary/20 transition-all duration-300"
+                style={{ width: `${(scrollProgress * 100) / 5}%` }}
+              />
+            </div>
+            
+            {/* The Bike Rider Tracker */}
+            <div 
+              className="absolute top-24 z-30 transition-all duration-500 ease-out"
+              style={{ 
+                left: `calc(15vw + ${scrollProgress * bikeDistance}px)`,
+                transform: 'translate(-50%, -50%)'
+              }}
+            >
+              <div className="relative group">
+                <div className="absolute -inset-4 bg-primary/20 rounded-full blur-xl group-hover:bg-primary/40 transition-all" />
+                <div className="relative bg-primary p-3 rounded-full shadow-[0_0_20px_rgba(var(--primary),0.5)] border-4 border-background">
+                  <Bike className="w-6 h-6 text-white animate-bounce" />
+                </div>
+                {/* Motion Trails */}
+                <div className="absolute top-1/2 right-full h-px w-8 bg-gradient-to-l from-primary to-transparent opacity-50" />
+              </div>
+            </div>
             
             {JOURNEY.map((item, i) => {
               const isActive = activeIndex === i;
               
               return (
                 <div key={i} className="flex-shrink-0 w-[350px] relative pt-12 group">
-                  {/* Progress Marker */}
+                  {/* Milestone Marker */}
                   <div className={cn(
-                    "absolute top-0 left-0 w-6 h-6 rounded-full -translate-y-1/2 ring-8 ring-background z-20 transition-all duration-500",
+                    "absolute top-0 left-0 w-4 h-4 rounded-full -translate-y-1/2 z-20 transition-all duration-500 border-4 border-background",
                     item.color,
-                    isActive ? "scale-125 opacity-100 shadow-[0_0_20px_rgba(var(--primary),0.5)]" : "scale-75 opacity-30"
+                    isActive ? "scale-110 opacity-100" : "scale-75 opacity-30"
                   )} />
                   
                   <div className={cn(
                     "glass p-8 rounded-3xl border-white/5 transition-all duration-700 h-full flex flex-col",
                     isActive 
                       ? "border-primary/40 opacity-100 blur-0 scale-105 shadow-2xl" 
-                      : "opacity-40 blur-[4px] scale-95 pointer-events-none"
+                      : "opacity-40 blur-[8px] scale-95 pointer-events-none"
                   )}>
                     <div className="flex items-center gap-2 mb-4">
                       <Calendar className={cn("w-4 h-4", isActive ? "text-primary" : "text-muted-foreground")} />
