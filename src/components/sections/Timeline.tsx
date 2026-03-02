@@ -42,12 +42,24 @@ const JOURNEY = [
 
 export const Timeline = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const lastScrollY = useRef(0);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isFacingLeft, setIsFacingLeft] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       if (!containerRef.current) return;
+      
+      const currentScrollY = window.scrollY;
+      // Determine scroll direction
+      if (currentScrollY > lastScrollY.current) {
+        setIsFacingLeft(false); // Scrolling down
+      } else if (currentScrollY < lastScrollY.current) {
+        setIsFacingLeft(true); // Scrolling up
+      }
+      lastScrollY.current = currentScrollY;
+
       const rect = containerRef.current.getBoundingClientRect();
       const sectionHeight = containerRef.current.offsetHeight;
       const viewportHeight = window.innerHeight;
@@ -65,7 +77,7 @@ export const Timeline = () => {
       setActiveIndex(index);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -110,7 +122,7 @@ export const Timeline = () => {
               className="absolute top-24 z-30 transition-all duration-500 ease-out"
               style={{ 
                 left: `calc(15vw + ${scrollProgress * bikeDistance}px)`,
-                transform: 'translate(-50%, -50%)'
+                transform: `translate(-50%, -50%) ${isFacingLeft ? 'scaleX(-1)' : 'scaleX(1)'}`
               }}
             >
               <div className="relative group">
@@ -119,7 +131,10 @@ export const Timeline = () => {
                   <Bike className="w-6 h-6 text-white animate-bounce" />
                 </div>
                 {/* Motion Trails */}
-                <div className="absolute top-1/2 right-full h-px w-8 bg-gradient-to-l from-primary to-transparent opacity-50" />
+                <div className={cn(
+                  "absolute top-1/2 h-px w-8 bg-gradient-to-l from-primary to-transparent opacity-50 transition-all",
+                  isFacingLeft ? "left-full bg-gradient-to-r" : "right-full"
+                )} />
               </div>
             </div>
             
