@@ -2,6 +2,7 @@ import { Navbar } from '@/components/ui/Navbar';
 import { Hero } from '@/components/sections/Hero';
 import { Timeline } from '@/components/sections/Timeline';
 import { CaseStudies } from '@/components/sections/CaseStudies';
+import { Skills } from '@/components/sections/Skills';
 import { AILab } from '@/components/sections/AILab';
 import { Automations } from '@/components/sections/Automations';
 import { Leadership } from '@/components/sections/Leadership';
@@ -24,6 +25,10 @@ export default function Home() {
 
       <div id="case-studies">
         <CaseStudies />
+      </div>
+
+      <div id="skills">
+        <Skills />
       </div>
 
       <div id="ai-lab">
