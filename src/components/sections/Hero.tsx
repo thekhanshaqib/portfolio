@@ -4,7 +4,7 @@ import React, { useCallback } from 'react';
 import * as THREE from 'three';
 import { ThreeCanvas } from '@/components/canvas/ThreeCanvas';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Cpu, Target, Zap, TrendingUp } from 'lucide-react';
+import { ArrowRight, Cpu, Target, Zap, TrendingUp, BarChart3 } from 'lucide-react';
 
 export const Hero = () => {
   const initHeroScene = useCallback((scene: THREE.Scene, camera: THREE.PerspectiveCamera, renderer: THREE.WebGLRenderer) => {
@@ -95,15 +95,15 @@ export const Hero = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 max-w-4xl mx-auto">
           {[
-            { icon: <TrendingUp className="w-5 h-5 text-primary" />, label: 'Revenue', value: '1M AED+' },
+            { icon: <BarChart3 className="w-5 h-5 text-primary" />, label: 'Quoted Billing', value: '11.67M' },
+            { icon: <TrendingUp className="w-5 h-5 text-accent" />, label: 'Revenue Growth', value: '1M AED+' },
+            { icon: <Cpu className="w-5 h-5 text-primary" />, label: 'Delivered', value: '13+' },
             { icon: <Zap className="w-5 h-5 text-accent" />, label: 'Decision Speed', value: '+60%' },
-            { icon: <Target className="w-5 h-5 text-primary" />, label: 'Efficiency', value: '+20%' },
-            { icon: <Cpu className="w-5 h-5 text-accent" />, label: 'Products', value: '13+ Delivered' },
           ].map((item, i) => (
             <div key={i} className="flex flex-col items-center">
               <div className="mb-2">{item.icon}</div>
               <span className="text-2xl font-bold text-white">{item.value}</span>
-              <span className="text-xs uppercase tracking-widest text-muted-foreground">{item.label}</span>
+              <span className="text-xs uppercase tracking-widest text-muted-foreground text-center">{item.label}</span>
             </div>
           ))}
         </div>
