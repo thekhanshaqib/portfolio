@@ -61,7 +61,7 @@ const SKILL_CATEGORIES = [
       'Cross-Functional Leadership',
       '0-1 Product Development',
       'Entrepreneurial Mindset',
-      'Client Relationship Mgmt',
+      'Customer Research & UAT',
       'Mentorship'
     ]
   }
