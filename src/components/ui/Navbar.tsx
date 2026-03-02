@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu } from 'lucide-react';
+import { Menu, Linkedin } from 'lucide-react';
 
 export const Navbar = () => {
   return (
@@ -22,10 +22,17 @@ export const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-3">
-          <Button variant="ghost" className="rounded-full text-xs font-bold md:flex hidden hover:bg-white/5">Resume</Button>
-          <a href="mailto:shaqibiqbal.1212@gmail.com">
-            <Button className="rounded-full bg-white text-black hover:bg-white/90 font-bold px-6 text-xs">Hire Me</Button>
+          <a href="https://www.linkedin.com/in/shaqib-iqbal-a15675170/" target="_blank" rel="noopener noreferrer">
+            <Button variant="ghost" size="icon" className="rounded-full hover:bg-white/5 md:flex hidden">
+              <Linkedin className="w-5 h-5 text-muted-foreground hover:text-primary transition-colors" />
+              <span className="sr-only">LinkedIn</span>
+            </Button>
           </a>
+          
+          <Button className="rounded-full bg-white text-black hover:bg-white/90 font-bold px-6 text-xs">
+            Download Resume
+          </Button>
+
           <Button variant="ghost" size="icon" className="lg:hidden rounded-full">
             <Menu className="w-5 h-5" />
           </Button>
