@@ -57,8 +57,8 @@ export const Leadership = () => {
                   <div className="text-xs uppercase tracking-tighter text-muted-foreground">Years Experience</div>
                 </div>
                 <div className="space-y-2">
-                  <div className="text-5xl font-bold text-white">9.3</div>
-                  <div className="text-xs uppercase tracking-tighter text-muted-foreground">BCA CGPA Merit</div>
+                  <div className="text-4xl font-bold text-white">11.67M</div>
+                  <div className="text-xs uppercase tracking-tighter text-muted-foreground">AED Quoted Billing</div>
                 </div>
               </div>
               
