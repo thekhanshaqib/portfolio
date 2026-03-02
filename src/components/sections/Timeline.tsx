@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useRef, useEffect, useState } from 'react';
@@ -35,7 +36,7 @@ const JOURNEY = [
     company: 'Centeuno Technologies LLP',
     location: 'Pune, India',
     period: 'Feb 2023 - Mar 2025',
-    description: 'Led delivery of 13+ cross-domain products. Scaled e-commerce platform to 1M AED revenue with 40% user retention.',
+    description: 'Led delivery of 13+ cross-domain products. Scaled e-commerce platform to 1M AED revenue with 40% user retention and 30% repeat purchase rate.',
     color: 'bg-emerald-500',
   },
   {

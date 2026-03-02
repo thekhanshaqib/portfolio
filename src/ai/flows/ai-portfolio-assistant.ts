@@ -1,3 +1,4 @@
+
 'use server';
 /**
  * @fileOverview An AI assistant flow that answers questions about Shaqib Iqbal's portfolio content, experience, and projects.
@@ -37,8 +38,8 @@ Current Role: Product Manager & Digital Transformation at MegaPower Electromecha
 
 Professional Journey:
 - Apr 2024 - Present: Product Manager & Digital Transformation at MegaPower Electromechanical LLC (Dubai, UAE). Led 0-1 AI-powered automation/chatbot using OpenAI & Gemini APIs. Improved operational efficiency by 20%. Accelerated decision-making by 60% with SQL dashboards.
-- Feb 2023 - Mar 2025: Co-founder & Project Manager at Centeuno Technologies LLP. Led delivery of 13+ cross-domain products (E-commerce, Logistics, SaaS). Scaled B2C platform to 1M AED revenue in year one with 40% retention and 30% repeat purchase rate. Managed sprint planning and feature prioritization.
-- Dec 2022 - Mar 2024: Associate Product Manager at MAVS. Owned roadmap for 2 enterprise B2B inventory & procurement platforms. Contributed to 11.67M AED in quoted billings (2025). Improved warehouse stock tracking speed by 40%. Saved 8-10 hours weekly via Power BI dashboards.
+- Feb 2023 - Mar 2025: Co-founder & Project Manager at Centeuno Technologies LLP (Pune, India). Led delivery of 13+ cross-domain products (E-commerce, Logistics, SaaS, CRM). Scaled B2C platform to 1M AED revenue in year one with 40% retention and 30% repeat purchase rate. Managed sprints, backlog grooming, and was the direct point of contact for clients.
+- Dec 2022 - Mar 2024: Associate Product Manager at MAVS. Owned roadmap for 2 enterprise B2B platforms. Contributed to 11.67M AED in quoted billings (2025). Improved warehouse stock tracking speed by 40%. Saved 8-10 hours weekly via Power BI dashboards.
 - Apr 2021 - Nov 2022: Product Analyst at MAVS. Focused on data-driven insights and market trends for enterprise solutions.
 - Aug 2020 - Jan 2021: Web Developer Intern at Drivers In India, Pune, India. Foundation in engineering and technical implementation.
 
@@ -48,11 +49,7 @@ Other Experience:
 Key Skills:
 - Product Roadmap & Strategy, Stakeholder Management, Market Research.
 - AI workflows (LLMs), Webhook-driven automation (n8n, Make), SQL, Power BI.
-- Agile (Scrum), UX Optimization, Feature Prioritization, PRD/BRD Documentation.
-
-Special Automation Projects (n8n):
-- Weekly Market & AI Intelligence Report: Automated synthesis of global trends and AI breakthroughs into weekly summaries.
-- Competitor Analysis Weekly Report: Automated tracking of market competitor moves for strategic advantage.
+- Agile (Scrum), UX Optimization, Feature Prioritization, Customer Research & UAT, PRD/BRD Documentation.
 
 Education: Bachelor of Computer Applications (CS/ENGINEERING), Savitribai Phule Pune University (CGPA 9.3/10).
 Location: Pune, India (Open to Relocate).

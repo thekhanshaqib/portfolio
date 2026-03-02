@@ -1,3 +1,4 @@
+
 # Shaqib Iqbal | Technical Product Manager Portfolio
 
 A high-performance, interactive portfolio built with Next.js, React, Three.js, and Framer Motion. This portfolio showcases technical leadership, AI orchestration, and 0-1 product development experience.
@@ -32,7 +33,7 @@ To push this project to your own GitHub repository (`https://github.com/thekhans
 3. **Stage and commit your files:**
    ```bash
    git add .
-   git commit -m "Initial commit: Professional PM Portfolio with AI Assistant"
+   git commit -m "Update: Consolidating latest portfolio features and AI integration"
    ```
 
 4. **Push to the main branch:**

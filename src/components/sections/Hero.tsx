@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useCallback } from 'react';
@@ -66,7 +67,7 @@ export const Hero = () => {
       <ThreeCanvas init={initHeroScene} className="absolute inset-0 z-0 pointer-events-none" />
       
       <div className="container relative z-10 px-6 text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full glass text-sm font-medium text-white border border-white/10 shadow-lg">
+        <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full glass text-sm font-bold text-white border border-white/10 shadow-lg">
           <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse shadow-[0_0_10px_rgba(var(--primary),0.5)]" />
           Shaqib Iqbal | Technical Product Manager
         </div>
