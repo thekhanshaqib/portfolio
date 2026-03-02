@@ -1,5 +1,6 @@
 import { Navbar } from '@/components/ui/Navbar';
 import { Hero } from '@/components/sections/Hero';
+import { Timeline } from '@/components/sections/Timeline';
 import { CaseStudies } from '@/components/sections/CaseStudies';
 import { AILab } from '@/components/sections/AILab';
 import { Automations } from '@/components/sections/Automations';
@@ -17,6 +18,10 @@ export default function Home() {
 
       <div className="w-full h-24 bg-gradient-to-b from-background to-[#16191E]" />
       
+      <div id="timeline">
+        <Timeline />
+      </div>
+
       <div id="case-studies">
         <CaseStudies />
       </div>
