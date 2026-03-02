@@ -65,9 +65,11 @@ export const Navbar = () => {
             <span className="sr-only">LinkedIn</span>
           </a>
           
-          <Button className="rounded-full bg-white text-black hover:bg-white/90 font-bold px-6 text-xs shadow-lg">
-            Resume
-          </Button>
+          <a href="/Shaqibiqbal_AI_Product_Manager.pdf" download="Shaqibiqbal_AI_Product_Manager.pdf">
+            <Button className="rounded-full bg-white text-black hover:bg-white/90 font-bold px-6 text-xs shadow-lg">
+              Resume
+            </Button>
+          </a>
 
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>

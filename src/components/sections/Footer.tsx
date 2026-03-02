@@ -1,3 +1,4 @@
+
 'use client';
 
 import React from 'react';
@@ -84,9 +85,11 @@ export const Footer = () => {
                     <Mail className="w-4 h-4" /> Contact Me
                   </Button>
                 </a>
-                <Button variant="outline" className="w-full border-white/10 hover:bg-white/5 flex gap-2 text-white">
-                  <FileText className="w-4 h-4" /> Download Resume
-                </Button>
+                <a href="/Shaqibiqbal_AI_Product_Manager.pdf" download="Shaqibiqbal_AI_Product_Manager.pdf" className="block w-full">
+                  <Button variant="outline" className="w-full border-white/10 hover:bg-white/5 flex gap-2 text-white">
+                    <FileText className="w-4 h-4" /> Download Resume
+                  </Button>
+                </a>
               </div>
             </div>
           </div>
