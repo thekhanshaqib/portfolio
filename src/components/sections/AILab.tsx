@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState } from 'react';
@@ -24,16 +25,24 @@ export const AILab = () => {
 
     try {
       const response = await aiPortfolioAssistant({ question: userMsg });
-      setMessages(prev => [...prev, { role: 'ai', content: response.answer }]);
-    } catch (err) {
-      setMessages(prev => [...prev, { role: 'ai', content: "I'm having trouble connecting to my matrix. Please try again later." }]);
+      if (response && response.answer) {
+        setMessages(prev => [...prev, { role: 'ai', content: response.answer }]);
+      } else {
+        throw new Error("No answer returned");
+      }
+    } catch (err: any) {
+      console.error("AI Assistant Error:", err);
+      setMessages(prev => [...prev, { 
+        role: 'ai', 
+        content: "I'm having trouble connecting to my matrix. Please ensure the API key is set in the environment variables and try again." 
+      }]);
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <section className="py-24 bg-[#16191E] relative overflow-hidden">
+    <section id="ai-lab" className="py-24 bg-[#16191E] relative overflow-hidden">
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,#5989f0_0%,transparent_50%)]" />
       </div>
