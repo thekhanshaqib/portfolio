@@ -30,7 +30,7 @@ export const Navbar = () => {
           </a>
           
           <Button className="rounded-full bg-white text-black hover:bg-white/90 font-bold px-6 text-xs">
-            Download Resume
+            Resume
           </Button>
 
           <Button variant="ghost" size="icon" className="lg:hidden rounded-full">
