@@ -31,6 +31,14 @@ const JOURNEY = [
     color: 'bg-accent',
   },
   {
+    title: 'Co-founder & Project Manager',
+    company: 'Centeuno Technologies LLP',
+    location: 'Pune, India',
+    period: 'Feb 2023 - Mar 2025',
+    description: 'Led delivery of 13+ cross-domain products. Scaled e-commerce platform to 1M AED revenue with 40% user retention.',
+    color: 'bg-emerald-500',
+  },
+  {
     title: 'Product Manager & Digital Transformation',
     company: 'MegaPower Electromechanical LLC',
     location: 'Dubai, UAE',
@@ -52,11 +60,10 @@ export const Timeline = () => {
       if (!containerRef.current) return;
       
       const currentScrollY = window.scrollY;
-      // Determine scroll direction
       if (currentScrollY > lastScrollY.current) {
-        setIsFacingLeft(false); // Scrolling down
+        setIsFacingLeft(false);
       } else if (currentScrollY < lastScrollY.current) {
-        setIsFacingLeft(true); // Scrolling up
+        setIsFacingLeft(true);
       }
       lastScrollY.current = currentScrollY;
 
@@ -84,7 +91,7 @@ export const Timeline = () => {
 
   const getTranslateX = () => {
     if (typeof window === 'undefined') return 0;
-    const cardWidth = 398; // 350px width + 48px gap
+    const cardWidth = 398;
     const totalContentWidth = JOURNEY.length * cardWidth;
     const visibleWidth = window.innerWidth * 0.8;
     return scrollProgress * (totalContentWidth - visibleWidth);
@@ -94,7 +101,7 @@ export const Timeline = () => {
   const bikeDistance = (JOURNEY.length - 1) * 398;
 
   return (
-    <section id="timeline" ref={containerRef} className="relative h-[400vh] bg-background">
+    <section id="timeline" ref={containerRef} className="relative h-[500vh] bg-background">
       <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
         <div className="container px-6 mb-12 relative z-20">
           <div className="text-center">
@@ -109,7 +116,6 @@ export const Timeline = () => {
             className="flex gap-12 px-[15vw] transition-transform duration-300 ease-out py-24 relative"
             style={{ transform: `translateX(-${translateX}px)` }}
           >
-            {/* Timeline Background Line */}
             <div className="absolute top-24 left-0 w-[500%] h-1 bg-white/5 -z-10 -translate-y-1/2 overflow-hidden">
               <div 
                 className="h-full bg-primary/20 transition-all duration-300"
@@ -117,7 +123,6 @@ export const Timeline = () => {
               />
             </div>
             
-            {/* The Bike Rider Tracker */}
             <div 
               className="absolute top-24 z-30 transition-all duration-500 ease-out"
               style={{ 
@@ -130,11 +135,6 @@ export const Timeline = () => {
                 <div className="relative bg-primary p-3 rounded-full shadow-[0_0_20px_rgba(var(--primary),0.5)] border-4 border-background">
                   <Bike className="w-6 h-6 text-white animate-bounce" />
                 </div>
-                {/* Motion Trails */}
-                <div className={cn(
-                  "absolute top-1/2 h-px w-8 bg-gradient-to-l from-primary to-transparent opacity-50 transition-all",
-                  isFacingLeft ? "left-full bg-gradient-to-r" : "right-full"
-                )} />
               </div>
             </div>
             
@@ -143,7 +143,6 @@ export const Timeline = () => {
               
               return (
                 <div key={i} className="flex-shrink-0 w-[350px] relative pt-12 group">
-                  {/* Milestone Marker */}
                   <div className={cn(
                     "absolute top-0 left-0 w-4 h-4 rounded-full -translate-y-1/2 z-20 transition-all duration-500 border-4 border-background",
                     item.color,
@@ -185,7 +184,6 @@ export const Timeline = () => {
           </div>
         </div>
         
-        {/* Visual Progress Indicator */}
         <div className="container px-6 mt-16 flex flex-col items-center gap-4">
           <div className="flex gap-4 mb-2">
             {JOURNEY.map((_, i) => (
