@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useCallback, useState } from 'react';
@@ -8,35 +7,38 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { Activity, Layers, Users, Zap } from 'lucide-react';
+import { Activity, Layers, Users, Zap, Globe, Package } from 'lucide-react';
 
 const PROJECTS = [
   {
-    title: 'AI Workflow Automation Platform',
-    category: 'AI Systems',
-    description: 'Reduced manual effort by 70% using LLM orchestration.',
-    impact: '70% efficiency gain',
-    longDesc: 'Built a multi-agent orchestration layer that handles complex data entry and validation tasks. Leveraged Gemini and vector databases to create a self-healing automation pipeline.',
-    tech: ['Python', 'LangChain', 'Next.js', 'PostgreSQL'],
-    metrics: ['Reduced manual processing time from 4h to 12min', '99.2% accuracy in data extraction', 'Scaled to 10k+ daily events']
+    title: 'AI-Powered Automation Platform',
+    category: 'SaaS / Enterprise',
+    company: 'MegaPower LLC',
+    description: 'Led 0-1 AI automation using OpenAI & Gemini APIs for MENA region.',
+    impact: '20% Efficiency Gain',
+    longDesc: 'Developed a comprehensive AI chatbot and automation platform to enable scalable digital operations. Integrated webhook-driven workflows using n8n and Make, reducing manual reporting overhead significantly.',
+    tech: ['OpenAI API', 'Gemini API', 'n8n', 'Make', 'SQL', 'Power BI'],
+    metrics: ['20% increase in operational efficiency', '60% faster decision-making via dashboards', 'Automated reporting for cross-functional teams']
   },
   {
-    title: 'Marketplace Optimization',
-    category: 'Growth',
-    description: 'Improved retention by 25% through behavioral AI.',
-    impact: '25% Retention Boost',
-    longDesc: 'Implemented a dynamic pricing and recommendation engine for a two-sided marketplace. Used ML models to predict churn and trigger automated re-engagement flows.',
-    tech: ['React', 'Node.js', 'TensorFlow.js', 'Redis'],
-    metrics: ['25% increase in user LTV', '15% reduction in CAC', 'Improved match rate by 40%']
+    title: 'B2C E-commerce Scaling',
+    category: 'E-commerce',
+    company: 'Centeuno Technologies',
+    description: 'Scaled a B2C platform to 1M AED revenue in its first year.',
+    impact: '1M AED Revenue',
+    longDesc: 'As Co-founder, led the delivery of 13+ cross-domain products. Focused on customer engagement and retention strategies that drove high repeat purchase rates for a major e-commerce initiative.',
+    tech: ['React', 'Node.js', 'CRM (HubSpot)', 'Agile', 'Market Research'],
+    metrics: ['1M AED revenue in year one', '100K+ user engagement', '40% customer retention rate', '30% repeat purchase rate']
   },
   {
-    title: 'Logistics / Last-mile System',
-    category: 'Operations',
-    description: 'Optimized routing for 300+ vehicles in real-time.',
-    impact: '15% Fuel Savings',
-    longDesc: 'Redesigned the core dispatching algorithm to account for real-time traffic, weather, and driver performance. Integrated IoT sensor data for predictive maintenance.',
-    tech: ['Go', 'Kafka', 'Google Maps API', 'AWS'],
-    metrics: ['15% reduction in fuel costs', '20% improvement in delivery OTD', 'Automated dispatching for 95% of orders']
+    title: 'AI Contact Management App',
+    category: 'Product Dev',
+    company: 'BizDro',
+    description: 'Owned 0-1 development of an AI contact management mobile app.',
+    impact: '20% Churn Reduction',
+    longDesc: 'Owned the product lifecycle from concept to MVP in just 2 weeks. Leveraged OCR and LLM workflows to automate contact entry and management for freelance users.',
+    tech: ['LLM Workflows', 'OCR', 'Figma', 'Postman', 'UX/UI Design'],
+    metrics: ['MVP delivered in 2 weeks', '20% reduction in churn', '25% faster market insight generation', 'Iterative UX via 100+ user interviews']
   }
 ];
 
@@ -75,12 +77,8 @@ export const CaseStudies = () => {
       cubes.forEach((cube, i) => {
         cube.rotation.x += 0.01;
         cube.rotation.y += 0.01;
-        
-        // Pulse effect for active
         const scale = activeProject === i ? 1.2 : 0.8;
         cube.scale.lerp(new THREE.Vector3(scale, scale, scale), 0.1);
-        
-        // Color transition
         const targetColor = activeProject === i ? new THREE.Color(0xc48ffc) : new THREE.Color(0x5989f0);
         (cube.material as THREE.MeshStandardMaterial).color.lerp(targetColor, 0.05);
       });
@@ -96,9 +94,9 @@ export const CaseStudies = () => {
       <div className="container px-6">
         <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-4">
           <div className="max-w-xl">
-            <h2 className="text-4xl font-bold mb-4 tracking-tight">Proven Impact. <span className="text-primary">Measurable Results.</span></h2>
+            <h2 className="text-4xl font-bold mb-4 tracking-tight">Proven <span className="text-primary">Experience.</span> Real <span className="text-primary">Results.</span></h2>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              Selection of high-impact projects where I led cross-functional teams to deliver significant business value through technical innovation.
+              Selection of high-impact products where I led technical strategy and execution to drive measurable growth across diverse industries.
             </p>
           </div>
           <div className="flex gap-2 mb-2">
@@ -118,7 +116,7 @@ export const CaseStudies = () => {
             <div className="absolute bottom-6 left-6 right-6 flex justify-center gap-4">
                {PROJECTS.map((p, i) => (
                  <Badge key={i} variant={activeProject === i ? 'default' : 'outline'} className="cursor-pointer" onClick={() => setActiveProject(i)}>
-                    {p.category}
+                    {p.company}
                  </Badge>
                ))}
             </div>
@@ -130,10 +128,11 @@ export const CaseStudies = () => {
                 <Badge className="bg-primary/20 text-primary border-primary/20 uppercase tracking-widest text-[10px] py-1 px-3">
                   {PROJECTS[activeProject].category}
                 </Badge>
+                <span className="text-xs text-muted-foreground font-semibold uppercase">{PROJECTS[activeProject].company}</span>
               </div>
               <h3 className="text-3xl font-bold mb-4 text-white">{PROJECTS[activeProject].title}</h3>
               <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                {PROJECTS[activeProject].longDesc}
+                {PROJECTS[activeProject].description}
               </p>
               
               <div className="grid grid-cols-2 gap-4 mb-8">
@@ -147,12 +146,13 @@ export const CaseStudies = () => {
 
               <Dialog>
                 <DialogTrigger asChild>
-                  <Button className="w-full h-12 rounded-xl bg-primary hover:bg-primary/90">Deep Dive Case Study</Button>
+                  <Button className="w-full h-12 rounded-xl bg-primary hover:bg-primary/90">Deep Dive Details</Button>
                 </DialogTrigger>
                 <DialogContent className="glass sm:max-w-[700px] border-white/10">
                   <DialogHeader>
                     <div className="flex items-center gap-2 mb-2">
                       <Badge variant="outline">{PROJECTS[activeProject].category}</Badge>
+                      <span className="text-sm text-muted-foreground">{PROJECTS[activeProject].company}</span>
                     </div>
                     <DialogTitle className="text-3xl font-bold">{PROJECTS[activeProject].title}</DialogTitle>
                     <DialogDescription className="text-lg pt-4">
@@ -162,7 +162,7 @@ export const CaseStudies = () => {
                   <div className="grid gap-6 py-4">
                     <div className="space-y-4">
                       <h4 className="font-semibold text-lg flex items-center gap-2">
-                        <Layers className="w-5 h-5 text-primary" /> Technical Architecture
+                        <Layers className="w-5 h-5 text-primary" /> Core Tech Stack
                       </h4>
                       <div className="flex flex-wrap gap-2">
                         {PROJECTS[activeProject].tech.map(t => (
@@ -172,7 +172,7 @@ export const CaseStudies = () => {
                     </div>
                     <div className="space-y-4">
                       <h4 className="font-semibold text-lg flex items-center gap-2">
-                        <Activity className="w-5 h-5 text-accent" /> Key Metrics
+                        <Activity className="w-5 h-5 text-accent" /> Achievement Highlights
                       </h4>
                       <ul className="list-disc list-inside space-y-2 text-muted-foreground">
                         {PROJECTS[activeProject].metrics.map(m => (
@@ -182,10 +182,10 @@ export const CaseStudies = () => {
                     </div>
                     <div className="space-y-4">
                       <h4 className="font-semibold text-lg flex items-center gap-2">
-                        <Users className="w-5 h-5 text-primary" /> Team Leadership
+                        <Users className="w-5 h-5 text-primary" /> Strategic Leadership
                       </h4>
                       <p className="text-muted-foreground">
-                        Led a cross-functional squad of 12 (Eng, Design, QA, Analytics) through 4 sprints of discovery and 8 sprints of implementation.
+                        Led cross-functional teams and aligned product roadmaps with enterprise-wide digital transformation goals.
                       </p>
                     </div>
                   </div>

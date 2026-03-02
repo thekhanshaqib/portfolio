@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState } from 'react';
@@ -35,7 +34,6 @@ export const AILab = () => {
 
   return (
     <section className="py-24 bg-[#16191E] relative overflow-hidden">
-      {/* Background patterns */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,#5989f0_0%,transparent_50%)]" />
       </div>
@@ -43,38 +41,37 @@ export const AILab = () => {
       <div className="container px-6 relative z-10">
         <div className="text-center mb-16">
           <Badge className="mb-4 bg-accent/20 text-accent border-accent/20 px-4 py-1">THE AI LAB</Badge>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Orchestrating <span className="text-accent italic">Intelligence.</span></h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Orchestrating <span className="text-accent italic">LLM Workflows.</span></h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Explore how I build and scale LLM-powered systems, from agentic workflows to production-grade automation pipelines.
+            I build production-grade AI systems, leveraging multi-agent orchestration to turn complex business logic into automated reality.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Interactive Flow Diagram */}
           <div className="lg:col-span-7 space-y-8">
             <Card className="glass p-8 border-accent/20 relative overflow-hidden h-full flex flex-col justify-center">
                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
                   <div className="flex flex-col items-center p-6 glass border-white/5 rounded-2xl animate-float">
                     <MessageSquare className="w-8 h-8 text-primary mb-4" />
-                    <span className="font-semibold text-center text-sm">Input Interface</span>
-                    <p className="text-[10px] text-muted-foreground text-center mt-2">Webhooks, APIs, UI</p>
+                    <span className="font-semibold text-center text-sm">LLM Interfaces</span>
+                    <p className="text-[10px] text-muted-foreground text-center mt-2">OpenAI, Gemini</p>
                   </div>
                   <div className="flex flex-col items-center p-6 glass border-accent/30 rounded-2xl animate-pulse-slow">
                     <Brain className="w-10 h-10 text-accent mb-4" />
-                    <span className="font-semibold text-center text-sm">LLM Orchestrator</span>
-                    <p className="text-[10px] text-accent/80 text-center mt-2">LangChain, ReAct Logic</p>
+                    <span className="font-semibold text-center text-sm">Automations</span>
+                    <p className="text-[10px] text-accent/80 text-center mt-2">n8n, Make Flows</p>
                   </div>
                   <div className="flex flex-col items-center p-6 glass border-white/5 rounded-2xl animate-float" style={{ animationDelay: '1s' }}>
                     <Workflow className="w-8 h-8 text-primary mb-4" />
-                    <span className="font-semibold text-center text-sm">Action Pipeline</span>
-                    <p className="text-[10px] text-muted-foreground text-center mt-2">Tools, DBs, Auth</p>
+                    <span className="font-semibold text-center text-sm">Data Pipeline</span>
+                    <p className="text-[10px] text-muted-foreground text-center mt-2">SQL, Power BI, OCR</p>
                   </div>
                </div>
                
                <div className="mt-12 space-y-4">
-                  <h4 className="font-bold text-white flex items-center gap-2"><Sparkles className="w-5 h-5 text-accent" /> Tech Stack Breakdown</h4>
+                  <h4 className="font-bold text-white flex items-center gap-2"><Sparkles className="w-5 h-5 text-accent" /> Expert Toolset</h4>
                   <div className="flex flex-wrap gap-3">
-                    {['Vector DBs (Pinecone)', 'OpenAI/Gemini APIs', 'LangGraph', 'Node.js/Python', 'Event-Driven Arch'].map(item => (
+                    {['Jira', 'Gemini', 'OpenAI', 'n8n', 'Make', 'Power BI', 'SQL', 'Postman', 'Figma', 'A/B Testing'].map(item => (
                       <span key={item} className="px-3 py-1 bg-white/5 rounded-full text-xs text-muted-foreground border border-white/10">{item}</span>
                     ))}
                   </div>
@@ -82,7 +79,6 @@ export const AILab = () => {
             </Card>
           </div>
 
-          {/* AI Chatbot */}
           <div className="lg:col-span-5">
             <div className="glass flex flex-col h-[500px] rounded-3xl border-white/10 overflow-hidden shadow-2xl">
               <div className="p-4 bg-white/5 border-b border-white/10 flex items-center gap-3">
@@ -90,8 +86,8 @@ export const AILab = () => {
                   <Cpu className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold">Stratosphere AI Assistant</h3>
-                  <p className="text-[10px] text-muted-foreground">Ask me about my experience or projects.</p>
+                  <h3 className="text-sm font-bold">Ask Shaqib's AI</h3>
+                  <p className="text-[10px] text-muted-foreground">Ask me about my AI projects or metrics.</p>
                 </div>
               </div>
 
@@ -99,7 +95,7 @@ export const AILab = () => {
                 <div className="space-y-4">
                   {messages.length === 0 && (
                     <div className="text-center py-10">
-                      <p className="text-sm text-muted-foreground italic">"I was built to explain the complexity of my creator's portfolio. How can I help?"</p>
+                      <p className="text-sm text-muted-foreground italic">"I'm an AI assistant trained on Shaqib's professional journey. Ask me about his impact at MegaPower or BizDro."</p>
                     </div>
                   )}
                   {messages.map((m, i) => (
@@ -127,7 +123,7 @@ export const AILab = () => {
                 <Input 
                   value={question}
                   onChange={(e) => setQuestion(e.target.value)}
-                  placeholder="Ask about strategy, tech, or metrics..." 
+                  placeholder="Ask about my AI workflows..." 
                   className="bg-black/20 border-white/10 text-xs h-10 rounded-xl"
                 />
                 <Button type="submit" size="icon" disabled={isLoading} className="bg-accent hover:bg-accent/90 shrink-0 h-10 w-10">

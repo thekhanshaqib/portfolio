@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useCallback } from 'react';
@@ -11,14 +10,12 @@ export const Hero = () => {
   const initHeroScene = useCallback((scene: THREE.Scene, camera: THREE.PerspectiveCamera, renderer: THREE.WebGLRenderer) => {
     camera.position.z = 5;
 
-    // Lights
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
     scene.add(ambientLight);
     const pointLight = new THREE.PointLight(0x5989f0, 2);
     pointLight.position.set(2, 3, 4);
     scene.add(pointLight);
 
-    // Particles/Nodes
     const geometry = new THREE.SphereGeometry(0.1, 16, 16);
     const material = new THREE.MeshStandardMaterial({ color: 0x5989f0, emissive: 0x5989f0, emissiveIntensity: 2 });
     
@@ -31,7 +28,6 @@ export const Hero = () => {
       scene.add(node);
     }
 
-    // Connectors
     const lineMaterial = new THREE.LineBasicMaterial({ color: 0x5989f0, transparent: true, opacity: 0.3 });
     const lineGeometries = nodes.map((node, i) => {
       const nextNode = nodes[(i + 1) % nodes.length];
@@ -51,7 +47,6 @@ export const Hero = () => {
         node.position.x += Math.cos(time + i) * 0.005;
       });
 
-      // Update lines
       lineGeometries.forEach((line, i) => {
         const node = nodes[i];
         const nextNode = nodes[(i + 1) % nodes.length];
@@ -63,10 +58,7 @@ export const Hero = () => {
     };
 
     animate();
-
-    return () => {
-      cancelAnimationFrame(frameId);
-    };
+    return () => cancelAnimationFrame(frameId);
   }, []);
 
   return (
@@ -76,34 +68,37 @@ export const Hero = () => {
       <div className="container relative z-10 px-6 text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full glass text-xs font-medium text-primary-foreground/80">
           <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-          Available for Strategic Partnerships
+          Shaqib Iqbal | Technical Product Manager
         </div>
         
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50">
-          I Build Products That Turn <br />
-          <span className="text-primary italic">Complexity</span> Into <span className="text-accent italic">Clarity.</span>
+          Turning <span className="text-primary italic">Ambiguity</span> Into <br />Structured <span className="text-accent italic">Impact.</span>
         </h1>
         
         <p className="max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed">
-          Technical Product Manager | AI Systems | Consumer & Enterprise. 
-          Bridging the gap between high-level strategy and technical execution.
+          4+ years building 0-1 products across B2C, B2B, and SaaS ecosystems. 
+          Bridging technical depth with business acumen to ship scalable solutions.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button size="lg" className="rounded-full px-8 h-12 text-base group bg-primary hover:bg-primary/90">
-            View Case Studies <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Button>
-          <Button size="lg" variant="outline" className="rounded-full px-8 h-12 text-base glass hover:bg-white/5">
-            Explore AI Lab
-          </Button>
+          <a href="#case-studies">
+            <Button size="lg" className="rounded-full px-8 h-12 text-base group bg-primary hover:bg-primary/90">
+              View Experience <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </a>
+          <a href="#ai-lab">
+            <Button size="lg" variant="outline" className="rounded-full px-8 h-12 text-base glass hover:bg-white/5">
+              Explore AI Lab
+            </Button>
+          </a>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 max-w-4xl mx-auto">
           {[
-            { icon: <TrendingUp className="w-5 h-5 text-primary" />, label: 'Efficiency', value: '+70%' },
-            { icon: <Zap className="w-5 h-5 text-accent" />, label: 'Automation', value: 'AI-First' },
-            { icon: <Target className="w-5 h-5 text-primary" />, label: 'Scale', value: '30-40+ Teams' },
-            { icon: <Cpu className="w-5 h-5 text-accent" />, label: 'Architecture', value: 'LLM Native' },
+            { icon: <TrendingUp className="w-5 h-5 text-primary" />, label: 'Revenue', value: '1M AED+' },
+            { icon: <Zap className="w-5 h-5 text-accent" />, label: 'Decision Speed', value: '+60%' },
+            { icon: <Target className="w-5 h-5 text-primary" />, label: 'Efficiency', value: '+20%' },
+            { icon: <Cpu className="w-5 h-5 text-accent" />, label: 'Products', value: '13+ Delivered' },
           ].map((item, i) => (
             <div key={i} className="flex flex-col items-center">
               <div className="mb-2">{item.icon}</div>

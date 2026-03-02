@@ -1,10 +1,9 @@
-
 import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Stratosphere | Technical Product Manager Portfolio',
-  description: 'Technical Product Manager specializing in AI Systems, Consumer & Enterprise marketplaces.',
+  title: 'Shaqib Iqbal | Technical Product Manager Portfolio',
+  description: 'Technical Product Manager specializing in AI Systems, B2B/B2C Marketplaces, and Digital Transformation.',
 };
 
 export default function RootLayout({
