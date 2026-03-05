@@ -96,7 +96,7 @@ export const Hero = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24 max-w-4xl mx-auto">
           {[
-            { icon: <BarChart3 className="w-6 h-6 text-primary" />, label: 'Quoted Billing', value: '11.67M' },
+            { icon: <BarChart3 className="w-6 h-6 text-primary" />, label: 'Quoted Billing', value: '11.67M AED' },
             { icon: <TrendingUp className="w-6 h-6 text-accent" />, label: 'Revenue Growth', value: '1M AED+' },
             { icon: <Cpu className="w-6 h-6 text-primary" />, label: 'Delivered', value: '13+' },
             { icon: <Zap className="w-6 h-6 text-accent" />, label: 'Decision Speed', value: '+60%' },
