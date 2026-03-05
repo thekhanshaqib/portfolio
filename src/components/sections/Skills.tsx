@@ -100,7 +100,7 @@ export const Skills = () => {
         </div>
 
         <div className="mt-16 flex flex-wrap justify-center gap-3">
-          {['Jira', 'Linear', 'Confluence', 'Figma', 'Postman', 'Notion', 'Slack', 'GitHub'].map((tool) => (
+          {['Jira', 'Power BI', 'Confluence', 'Figma', 'Postman', 'Notion', 'Slack', 'GitHub'].map((tool) => (
             <span key={tool} className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-xs text-muted-foreground hover:bg-white/10 transition-colors cursor-default">
               {tool}
             </span>
